@@ -21,12 +21,12 @@ public class DistributedShardingApplicationTest {
 
     @Test
     public void insert() {
-//        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             OrderEntity orderEntity = new OrderEntity();
 //            orderEntity.setOrderId(System.currentTimeMillis());
             orderEntity.setUserId(new Random().nextInt(999));
             orderDao.save(orderEntity);
-//        }
+        }
     }
 
 //    @Test
