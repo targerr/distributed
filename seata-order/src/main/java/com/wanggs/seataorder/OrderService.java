@@ -9,16 +9,19 @@ import org.springframework.web.client.RestTemplate;
 @Service
 @Slf4j
 public class OrderService {
-
-
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private ProductFeignClient productFeignClient;
+
 
     @GlobalTransactional
     public Boolean create(Integer count) {
         //调用product 扣库存
-        String url = "http://localhost:8086/deduct?productId=1&count=" + count;
-        Boolean result = restTemplate.getForObject(url, Boolean.class);
+//        String url = "http://localhost:8086/deduct?productId=1&count=" + count;
+//        Boolean result = restTemplate.getForObject(url, Boolean.class);
+
+        Boolean result = productFeignClient.deduct(1L,count);
 
         if (result != null && result) {
             //可能抛出异常
