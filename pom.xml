@@ -5,6 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>distributed-sharding</module>
+        <module>seata-order</module>
+        <module>seata-product</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
