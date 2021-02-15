@@ -7,3 +7,17 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: seata-order
+  application:
+    name: seata-order
+
+seata:
+  service:
+    vgroup-mapping:
+      seata-order: default
+    grouplist:
+      default: 127.0.0.1:8091

@@ -1,5 +1,6 @@
 package com.wanggs.seataorder;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ public class OrderService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @GlobalTransactional
     public Boolean create(Integer count) {
         //调用product 扣库存
         String url = "http://localhost:8086/deduct?productId=1&count=" + count;
