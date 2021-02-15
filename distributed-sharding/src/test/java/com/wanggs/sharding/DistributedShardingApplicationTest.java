@@ -1,5 +1,6 @@
 package com.wanggs.sharding;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,12 +21,12 @@ public class DistributedShardingApplicationTest {
 
     @Test
     public void insert() {
-        for (int i = 0; i < 20; i++) {
+//        for (int i = 0; i < 20; i++) {
             OrderEntity orderEntity = new OrderEntity();
-            orderEntity.setOrderId(System.currentTimeMillis());
+//            orderEntity.setOrderId(System.currentTimeMillis());
             orderEntity.setUserId(new Random().nextInt(999));
             orderDao.save(orderEntity);
-        }
+//        }
     }
 
 //    @Test
@@ -38,8 +39,14 @@ public class DistributedShardingApplicationTest {
 
     @Test
     public void findByUserId() {
-        List<OrderEntity> byUserId = orderDao.findByUserId(630);
-        log.info("byUserId={}", byUserId);
+        List<OrderEntity> byUserId = orderDao.findByUserId(405);
+        log.info("byUserId={}", JSON.toJSONString(byUserId,true));
+    }
+
+    @Test
+    public void findByOrderId() {
+        OrderEntity byUserId = orderDao.findByOrderId(568133336737230849L);
+        log.info("byUserId={}", JSON.toJSONString(byUserId,true));
     }
 
     @Test
