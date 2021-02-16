@@ -7,3 +7,4 @@ xxl:
     executor:
       appname: xxl-job-executor-sample
       logpath: /tmp/
+      port: 9998
