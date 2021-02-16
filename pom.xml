@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>distributed-sharding</module>
+        <module>distributed-job</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
